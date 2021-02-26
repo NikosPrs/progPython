@@ -9,6 +9,7 @@ def primes(n):
         if divs == []:
             primes.append(i)
     return primes
+
 def quantity(n):
     quantity = []
     for i in primes(n):
@@ -20,14 +21,19 @@ def quantity(n):
         else:
             continue
     return quantity
+
 def primesIn(n):
     rel = []
     for i in primes(n):
         if n%i == 0:
             rel.append(i)
     return rel
+
 def primeDec(n):
-    s = 'n = 1'
+    k=0
+    s = ' n = '
     for prime in primesIn(n):
-        s += '*'+str(prime)+'^'+str(quantity(n)[0])+'*'
-    return s
+        s += str(prime)+'^'+str(quantity(n)[k])+'*'
+        k+=1
+    w=s[0:len(list(s))-1]
+    return w
