@@ -34,23 +34,21 @@ def primeDec(n):
         k+=1
     w=s[0:len(list(s))-1]
     return w
-def mcd(n,m):
+def mcd(n, m):
     mcd=1
-    k=1
+    k=0
     minQuantity=[]
-    for prime in primesIn(n):
-        if prime in primesIn(m):
-            minQuantity.append(min(quantity(n)[k],quantity(m)[k]))
-            mcd *= prime**minQuantity[k-1]
-            k+=1
+    index = 0
+    for prime1 in primesIn(n):
+        index += 1
+        index1 = 0
+        for prime2 in primesIn(m):
+            index1 += 1
+            if prime1 == prime2:
+                w = primesIn(m).index(prime2)
+                minQuantity.append(quantity(n)[w])
+                mcd *= prime1**minQuantity[k]
+                k+=1
     return mcd
-def lcm(n,m):
-    lcm=1
-    k=1
-    maxQuantity=[]
-    for prime in primesIn(n):
-        if prime in primesIn(m):
-            maxQuantity.append(max(quantity(n)[k],quantity(m)[k]))
-            lcm *= prime**maxQuantity[k-1]
-            k+=1
-    return lcm
+
+
