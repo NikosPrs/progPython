@@ -26,3 +26,8 @@ def primesIn(n):
         if n%i == 0:
             rel.append(i)
     return rel
+def primeDec(n):
+    s = 'n = 1'
+    for prime in primesIn(n):
+        s += '*'+str(prime)+'^'+str(quantity(n)[0])+'*'
+    return s
